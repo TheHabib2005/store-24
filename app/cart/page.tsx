@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -25,9 +26,12 @@ const CartPage = () => {
                                 <td className="py-6 px-4">
                                     <div className="flex items-center gap-6 w-max">
                                         <div className="h-36 shrink-0">
-                                            <img
+                                            <Image
                                                 src="https://readymadeui.com/images/product6.webp"
                                                 className="w-full h-full object-contain"
+                                                width={8000}
+                                                height={8000}
+                                                alt='dsfg'
                                             />
                                         </div>
                                         <div className='flex items-start gap-3 flex-col'>
