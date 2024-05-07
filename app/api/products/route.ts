@@ -1,4 +1,3 @@
-import { ApiResponse } from "@/me";
 import prisma from "@/prisma";
 import { conncetToDb } from "@/utils";
 
