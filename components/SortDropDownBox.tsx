@@ -48,7 +48,7 @@ const SortDropDownBox = () => {
 
     console.log(body);
 
-    body.current?.addEventListener("click", (event) => {
+    body.current?.addEventListener("click", (event: any) => {
         let updatedState = isoptionsOpen;
         if (event?.target?.id !== "sort-item" && updatedState === true) {
             setIsOptionsOpen(false);
