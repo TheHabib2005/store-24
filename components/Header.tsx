@@ -1,12 +1,17 @@
 "use client";
+import { useGlobalTempState } from "@/zustant-store/globalTempStore";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import SearchBar from "./SearchBar";
+import CartBar from "./CartBar";
+import { useCartStore } from "@/zustant-store/useCartStore";
 
 
 const Header = () => {
 
 
-
+    const { setIsCartBarOpen } = useGlobalTempState()
+    const { cart } = useCartStore();
 
 
 
@@ -63,7 +68,7 @@ const Header = () => {
                 </div>
             </div>
             {/* search box */}
-            {/* <SearchBar /> */}
+            <SearchBar />
             {/*  right side icon  */}
             <div className="w-1/3 md:flex hidden items-center gap-6 justify-end select-none ">
                 {/* wishList icon */}
@@ -95,6 +100,9 @@ const Header = () => {
                         strokeWidth={1.5}
                         stroke="currentColor"
                         className=" text-white xl:w-7 xl:h-7 w-6 h-6 cursor-pointer"
+                        onClick={() => {
+                            setIsCartBarOpen(true)
+                        }}
                     >
                         <path
                             strokeLinecap="round"
@@ -103,7 +111,7 @@ const Header = () => {
                         />
                     </svg>
                     <div className="absolute text-white bg-[#2563EB] w-4 h-4 rounded-full font-bold  top-[-6px] right-[-6px] text-[12px] flex items-center justify-center">
-                        0
+                        {cart.length}
                     </div>
                 </div>
 
@@ -128,7 +136,9 @@ const Header = () => {
             {/* mobile view right side cart icon  */}
             <div
                 className="relative p-3 rounded-md border border-neutral-700 md:hidden block cursor-pointer"
-
+                onClick={() => {
+                    setIsCartBarOpen(true)
+                }}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -145,9 +155,12 @@ const Header = () => {
                     />
                 </svg>
                 <div className="absolute bg-[#2563EB] w-5 h-5 rounded-full font-bold  top-[-10px] right-[-6px] text-[12px] flex items-center justify-center">
-                    0
+                    {cart.length}
                 </div>
             </div>
+
+            <CartBar />
+
         </header>
     );
 };
