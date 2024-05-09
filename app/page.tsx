@@ -1,18 +1,20 @@
 
-import CartBar from "@/components/CartBar";
-import CategoriesList from "@/components/CategoriesList";
-import CategoryLists from "@/components/CategoryLists";
 
-import Image from "next/image";
+import CategoryLists from "@/components/CategoryLists";
+import FeatureProducts from "@/components/FeatureProducts​";
+
 
 export default async function Home() {
 
 
 
   return (
-    <main>
+    <main className="">
       HOME
+      <FeatureProducts />
       <CategoryLists />
+      What Developer Say?
+
     </main>
   );
 }

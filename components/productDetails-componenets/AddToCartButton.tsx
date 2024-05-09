@@ -35,11 +35,11 @@ const AddToCartButton = ({ product }: IProps) => {
     }
 
     return (
-        <div className="flex  gap-x-10 items-center relative mt-5">
+        <div className="flex  gap-x-10 items-center relative ">
             {
                 <button
 
-                    className="w-[170px] bg-[#2562E7] p-3 rounded-sm capitalize"
+                    className="w-[170px] bg-[#2562E7] p-3 rounded-md capitalize"
                     onClick={() => handleAddToCart(product)}
                 >
                     add to cart

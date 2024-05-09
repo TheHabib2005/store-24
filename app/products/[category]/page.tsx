@@ -14,6 +14,7 @@ import Skelection from '@/components/Skelection'
 import ProductCard from '@/components/ProductCard'
 import CardWrapper from '@/components/CardWrapper'
 import ResetFilter from '@/components/ResetFilter'
+import Pagination from '@/components/Pagination'
 
 const Products = ({ params }: { params: { category: string } }) => {
     return (

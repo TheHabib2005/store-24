@@ -239,7 +239,7 @@ const CartBar: FC = () => {
                                     </div>
                                 </div>
                                 <Link
-                                    href={`${ProductsApi.length > 0 ? "/products/checkout" : "#"}`}
+                                    href={`/checkout`}
                                     className="block w-full rounded-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
                                 >
                                     Proceed to Checkout

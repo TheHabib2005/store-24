@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import React, { useRef, useState } from "react";
 interface sortOptionProps {
     name: string;
-    value: number;
+    value: string;
 }
 const SortDropDownBox = () => {
     const searchParams = useSearchParams();
@@ -12,26 +12,23 @@ const SortDropDownBox = () => {
     const path = usePathname();
     const router = useRouter();
     const [selectedOption, setSelectedOption] = useState(
-        params.get("sort-by") || "default"
+        params.get("sort-by") || "asc"
     );
     const [isoptionsOpen, setIsOptionsOpen] = useState(false);
     const [sortOption, setSortOption] = useState<sortOptionProps[]>([
-        {
-            name: "default",
-            value: 0,
-        },
+
         {
             name: "low-to-high",
-            value: 1,
+            value: "asc",
         },
         {
             name: "high-to-low",
-            value: -1,
+            value: "desc",
         },
     ]);
 
     const handleSelect = (option: sortOptionProps) => {
-        let updateSeletedOption = option.name;
+        let updateSeletedOption = option.value;
         setSelectedOption(updateSeletedOption);
         setIsOptionsOpen(false);
 
@@ -69,7 +66,7 @@ const SortDropDownBox = () => {
             >
                 Sort By :{" "}
                 <span className="capitalize" id="sort-button">
-                    {selectedOption}
+                    {selectedOption === "asc" ? "Ascending" : "Descending"}
                 </span>
             </div>
             {isoptionsOpen && (
@@ -80,7 +77,7 @@ const SortDropDownBox = () => {
                                 key={index}
                                 id="sort-item"
                                 onClick={() => handleSelect(option)}
-                                className={`text-sm capitalize ${selectedOption === option.name
+                                className={`text-sm capitalize ${selectedOption === option.value
                                     ? "bg-[#2563EB] hover:bg-[#2563EB]"
                                     : "hover:bg-[#2563EB]"
                                     } p-2 cursor-pointer rounded-sm`}

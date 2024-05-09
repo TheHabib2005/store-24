@@ -21,7 +21,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className + "bg-[#181818]"}>
+      <body className={inter.className + "bg-[#181818] max-w-[1460px] mx-auto"}>
         <NextTopLoader
           color="#000AFF"
           initialPosition={0.08}

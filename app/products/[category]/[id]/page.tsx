@@ -2,60 +2,28 @@
 import { ProductsApi } from "@/ProductApi";
 import BreadGrum from "@/components/BreadGrum";
 import AddToCartButton from "@/components/productDetails-componenets/AddToCartButton";
+import AddToWishList from "@/components/productDetails-componenets/AddToWishList";
 import ComponentsWrapper from "@/components/productDetails-componenets/MiniWrapper";
 import ProductImageGallery from "@/components/productDetails-componenets/ProductImageGallery";
-import Quantity from "@/components/productDetails-componenets/Quantity";
+
+import { fetchProductById } from "@/utils";
 
 const ProductDetails = async ({ params }: { params: any }) => {
 
-    let product = await fetch("http://localhost:30400/api/test");
-    let response = await product.json();
-    console.log(response);
-
-    let currentIndex = ProductsApi.findIndex(
-        (item) => item.id === parseInt(params.id)
-    );
-    const currentProduct = ProductsApi[currentIndex]
-
-
-
-    // const fetchProductById = async () => {
-    //     try {
-    //         setIsLoading(true);
-    //         const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/products/singleProduct/`, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(productId),
-    //         })
-    //         const data = await response.json();
-    //         setCurrentProduct(data[0])
-    //         setIsLoading(false);
-    //         setCurrentDisplayImage(data[0].thumbnail)
-    //     } catch (error) {
-    //         setIsLoading(false);
-    //         setError(error)
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     fetchProductById()
-    // }, [])
-
+    let { data } = await fetchProductById(params.id);
 
     return (
         <div>
             <div className="lg:flex block gap-x-4">
 
-                <ProductImageGallery product={currentProduct} />
+                <ProductImageGallery product={data} />
                 <div className="lg:w-[60%] ">
                     <div className="p-3 md:block hidden">
-                        <BreadGrum category={currentProduct.category} />
+                        <BreadGrum category={data.category} />
                     </div>
                     <div className="p-3 flex flex-col gap-y-3">
                         <h1 className="text-xl capitalize font-semibold leading-[30px]">
-                            {currentProduct.title}
+                            {data.title}
                         </h1>
                         <span className=" flex items-center gap-x-2">
                             {" "}
@@ -80,17 +48,18 @@ const ProductDetails = async ({ params }: { params: any }) => {
                                 })}
                         </span>
 
-                        <p className="capitalize">Brand : {currentProduct.brand}</p>
+                        <p className="capitalize">Brand : {data.brand}</p>
 
                         <p className="text-2xl text-[#2562E7] font-semibold">
-                            ৳ {currentProduct.stringPrice}
+                            ৳ {data.stringPrice}
                         </p>
-                        <Quantity />
+                        {/* <Quantity /> */}
 
-                        <AddToCartButton product={currentProduct} />
-                        <div>
-                            <p>{currentProduct.description}</p>
+                        <div className="flex items-center gap-x-5 mt-5">
+                            <AddToCartButton product={data} />
+                            <AddToWishList />
                         </div>
+
                     </div>
                 </div>
 

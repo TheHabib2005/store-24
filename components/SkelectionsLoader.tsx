@@ -10,10 +10,10 @@ const SkelectionsLoader = () => {
                     return <div className='bg-[#252525] rounded-sm p-5 h-[400px]' key={item}> <Skelection /></div>
                 })
             }
-            <div className='w-full h-screen fixed top-0 left-0 z-50 flex items-center justify-center bg-black/30 '>
+            {/* <div className='w-full h-screen fixed top-0 left-0 z-50 flex items-center justify-center bg-black/30 '>
                 <HashLoader color="#000AFF" />
 
-            </div>
+            </div> */}
         </div>
     )
 }

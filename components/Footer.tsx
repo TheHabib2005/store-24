@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Footer = async () => {
@@ -21,11 +22,58 @@ const Footer = async () => {
                                 <path d="M26.2381 17.9167L20.7382 28H32L26.2381 17.9167Z" />
                             </svg>
                         </div>
-                        <span className="uppercase">H&H STORE</span>
+                        <span className="uppercase text-3xl">H&H STORE</span>
                     </a>
                 </div>
-                <nav>
+                <nav className='flex flex-col sm:flex-row md:items-center gap-20 md:gap-y-0 gap-y-5'>
+                    <ul className='p-0 m-0'>
+                        <h1 className='text-white text-xl'>Categories</h1>
+                        <li>
+                            <Link
+                                className="block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300"
+                                href="/products/t-shirt"
+                            >
+                                T-shirt
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                className="block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300"
+                                href="/products/smartphone"
+                            >
+                                SmartPhone
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                className="block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300"
+                                href="/products/laptop"
+                            >
+                                Laptops
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                className="block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300"
+                                href="/products/watch"
+                            >
+                                Watch for Man
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                className="block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300"
+                                href="/products/skincare"
+                            >
+                                SkinCare & Beauty
+                            </Link>
+                        </li>
+
+                    </ul>
                     <ul>
+                        <h1 className='text-white text-xl'>Useful Links
+
+                        </h1>
                         <li>
                             <a
                                 className="block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300"
@@ -75,6 +123,7 @@ const Footer = async () => {
                             </a>
                         </li>
                     </ul>
+
                 </nav>
                 <div className="md:ml-auto">
                     <a

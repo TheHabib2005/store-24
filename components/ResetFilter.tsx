@@ -11,7 +11,7 @@ const ResetFilter = () => {
             router.push(`${process.env.NEXT_PUBLIC_APP_URL}/${path}`)
             setTimeout(() => {
                 window.location.reload()
-            }, 500)
+            }, 200)
         }}>Reset</button>
     )
 }

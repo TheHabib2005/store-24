@@ -45,3 +45,10 @@ export interface smartPhoneBrandListTYPE {
   name: string;
   isChecked: boolean;
 }
+
+export const userFeedBacks = [
+  {
+    id: 5454,
+    content: "",
+  },
+];

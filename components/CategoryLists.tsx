@@ -46,11 +46,11 @@ const CategoryLists = () => {
         },
     ]);
     return (
-        <section>
-            <h1 className="md:mt-10 mt-5 2xl:text-2xl md:text-xl capitalize font-semibold text-center">
+        <section className="px-3">
+            <h1 className="md:mt-10 mt-5 md:text-left text-center text-xl md:text-2xl capitalize font-semibold ">
                 popular categories
             </h1>
-            <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 lg:py-10 py-7 px-4">
+            <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 lg:py-10 py-5">
                 {categoryList.map((category) => {
                     return (
                         <Link href={`/products/${category.path}/`} key={category.id}>

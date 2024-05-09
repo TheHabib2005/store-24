@@ -24,9 +24,8 @@ export const POST = async (req: Request) => {
 
   try {
     await conncetToDb();
-    const { brand, categorys, searchQuery } = await req.json();
-
-    console.log(searchQuery);
+    const { brand, categorys, searchQuery, sortby } = await req.json();
+    console.log(sortby);
 
     const product = await prisma.product.findMany({
       where: {
@@ -64,7 +63,11 @@ export const POST = async (req: Request) => {
         ],
       },
       skip: 0,
-      take: 10,
+      take: 15,
+
+      orderBy: {
+        price: sortby,
+      },
     });
     response = {
       success: true,
@@ -76,6 +79,16 @@ export const POST = async (req: Request) => {
     };
     return NextResponse.json(response);
   } catch (error) {
-    return NextResponse.json(error);
+    console.log(error);
+
+    response = {
+      success: false,
+      data: [],
+      successMessage: "",
+      error: true,
+      errorMessage: "something went wrong",
+      statusCode: 500,
+    };
+    return NextResponse.json(response);
   }
 };

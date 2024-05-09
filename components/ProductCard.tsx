@@ -32,7 +32,8 @@ const ProductCard: FC<IProps> = ({ product }) => {
             <div className="mt-4 px-5 pb-5">
                 <a href="#">
                     <h5 className="text-xl tracking-tight text-white">
-                        {product.title}
+                        {product.title.substring(0, 30)}
+                        <span className='ml-5'>{"..."}</span>
                     </h5>
                 </a>
                 <div className="mt-2 mb-5 flex items-center justify-between">
